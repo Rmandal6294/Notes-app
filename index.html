@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Note App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Title bar with modern style -->
+        <header id="header">
+            <h1>Study Notes</h1>
+            <nav>
+                <a href="#home" id = "home_tab">Home</a>
+                <a href="#about" id = "about_tab">About</a>
+                <a href="#contact" id = "contact_tab">Contact</a>
+            </nav>
+        </header>
+
+        <section id = "home">
+        <!-- Search bar with neon style -->
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search notes...">
+        </div>
+
+        <!-- Notes container where the notes will be displayed -->
+        <div id="notesContainer"></div>
+
+        <!-- Modal for adding new note -->
+        <div id="modal">
+            <div id="modalContent">
+                <h2> TAKE NOTE </h2>
+            <textarea id="noteText" placeholder="Enter note text..."></textarea>
+            <input type="text" id="linkInput" placeholder="Optional: Add link">
+            <label>
+            <input type="file" id="fileInput">
+            <input type="file" id="videoInput" accept="video/*" style="display: none;">
+            <input type="file" id="audioInput" accept="audio/*" style="display: none;">
+            <button id="saveNoteBtn">Save Note</button>
+            <button id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Modal for viewing content (Image/PDF) -->
+        <div id="contentModal">
+            <button id="closeModalBtn">Close</button>
+            <div id="modalContentContainer"></div>
+        </div>
+
+        <!-- Sticky Add Note Button -->
+        <button id="addNoteBtn" class="add-note-btn">+</button>
+    </div>
+    </section>
+
+     <!-- About Section -->
+     <section id="about">
+        <h2>About Us</h2>
+        <P><B>Developed by: <i>RANIT MANDAL</i></B></P>
+        <img src = "i.jpg" alt = "developer picture">
+        <p>Welcome to Study Notes, your companion for organizing and managing your study materials efficiently. Whether you're a student, teacher, or lifelong learner, our app is designed to make your learning journey smoother.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" method="post" action="mailto:ranitmandal6294@gmail.com">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

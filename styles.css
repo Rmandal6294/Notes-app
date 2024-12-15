@@ -1,0 +1,366 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Title bar with modern 3D effect */
+#header {
+    background: linear-gradient(145deg, #6b7dff, #4e64cc);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#notesContainer button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #6b7dff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+#notesContainer button:hover {
+    background-color: #4e64cc;
+}
+
+#header h1 {
+    font-size: 36px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+/* Neon-style search bar */
+#searchContainer {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#searchInput {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #6b7dff;
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    color: #333;
+    box-shadow: 0 0 10px #6b7dff;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 20px #ff00ff;
+    border-color: #ff00ff;
+}
+
+/* Notes container */
+#notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.note {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: #333;
+}
+
+.note:hover {
+    transform: scale(1.05);
+}
+
+/* Add note button (sticky) */
+.add-note-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6b7dff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.add-note-btn:hover {
+    background-color: #4e64cc;
+}
+/* Modal Background - Full screen */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal Content Box */
+#modalContent {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+#modalContent h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Textarea - Enter Note */
+#noteText {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.3s ease;
+}
+
+#noteText:focus {
+    outline: none;
+    border-color: #6b7dff;
+}
+
+/* Link Input - Optional URL */
+#linkInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    transition: border-color 0.3s ease;
+}
+
+#linkInput:focus {
+    outline: none;
+    border-color: #6b7dff;
+}
+
+/* File Input - Image or PDF */
+#fileInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    transition: border-color 0.3s ease;
+}
+
+#fileInput:focus {
+    outline: none;
+    border-color: #6b7dff;
+}
+
+/* Buttons: Save and Cancel */
+#saveNoteBtn{
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #6b7dff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+#saveNoteBtn:hover {
+    background-color: #4e64cc;
+}
+
+/* Cancel Button */
+#cancelBtn {
+    background-color: #f44336;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+#cancelBtn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Modal content (image, PDF) */
+#contentModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#contentModal #modalContentContainer {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+#closeModalBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Random background color for each note */
+.note:nth-child(odd) {
+    background-color: #f0f8ff;
+}
+
+.note:nth-child(even) {
+    background-color: #ffebcd;
+}
+
+.note:nth-child(3n) {
+    background-color: #e6ffe6;
+}
+
+.note:nth-child(4n) {
+    background-color: #fff0f5;
+}
+
+.note:nth-child(5n) {
+    background-color: #ffe4e1;
+}
+
+.note:nth-child(6n) {
+    background-color: #f5f5dc;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #4e64cc;
+}
+
+nav a:hover {
+    background-color: #6b7dff;
+}
+
+/* Section styles */
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about, #contact {
+    max-width: 800px;
+    margin: auto;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #6b7dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4e64cc;
+}
+
+#about, #contact {
+    display: none;
+}
+
+#about img{
+    width: 200px !important;
+    height: auto;
+}
